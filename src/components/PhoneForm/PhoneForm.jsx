@@ -19,9 +19,7 @@ export const PhoneForm = ({onSave}) => {
         onSubmit={(values, actions) => {
             onSave({ ...values, id: nanoid() });
             actions.resetForm();
-           setTimeout(() => {
-           alert(JSON.stringify(values, null, 2));
-         }, 1000);
+
         }}
         >
         <Form>
