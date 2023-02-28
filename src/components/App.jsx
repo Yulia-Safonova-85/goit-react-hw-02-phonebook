@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { GlobalStyle } from './GlobalStyle';
 import { PhoneForm } from './PhoneForm/PhoneForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
+import { Layout } from './Layout';
 
 export class App extends Component {
   state = {
@@ -16,9 +18,9 @@ export class App extends Component {
     number: '',
   };
 
-  // addContact = newContact => {{
+  // addContact = newContact =>{
   //   if (prevState.name === this.state.name) {
-  //     alert('${name} is already in contacts')
+  //     alert('${newContact} is already in contacts')
   //   }
   //   this.setState(prevState => {
   //     return {
@@ -52,16 +54,16 @@ export class App extends Component {
   }
  
 render() {
-  
+  < GlobalStyle/>
   return (
-    <div>
+    <Layout>
       <h1>Phonebook</h1>
       <PhoneForm onSave={ this.addContact } />
       <h2>Contacts</h2>
       <Filter filter={this.state.filter} onChangeFilter={this.changeFilter } />
       <ContactList contacts={this.findContact()} onDeleteContact={ this.deleteContact} />
     
-    </div>
+    </Layout>
   );
 }
   

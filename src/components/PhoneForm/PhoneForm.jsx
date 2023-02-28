@@ -1,7 +1,7 @@
-import { Formik, Form, Field,ErrorMessage } from 'formik';
+import { Formik, Field, } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
-
+import { FormField, Form,ErrorMessage } from './PhoneForm.styled';
 
 const schema = Yup.object().shape({
    name: Yup.string()
@@ -23,7 +23,7 @@ export const PhoneForm = ({onSave}) => {
         }}
         >
         <Form>
-            <label htmlFor="name">
+            <FormField htmlFor="name">
                 Name
             <Field
   type="text"
@@ -31,17 +31,17 @@ export const PhoneForm = ({onSave}) => {
   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
   required/>
-                <ErrorMessage name="name" />
-                </label>
+                <ErrorMessage name="name" component="span"/>
+                </FormField>
 
-                <label htmlFor="number">Number
+                <FormField htmlFor="number">Number
                     <Field type="tel"
   name="number"
   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
   required />
-                    <ErrorMessage name="number" />
-                </label>
+                    <ErrorMessage name="number" component="span" />
+                </FormField>
             <button type='submit'>Add contact</button> 
             
         </Form>
