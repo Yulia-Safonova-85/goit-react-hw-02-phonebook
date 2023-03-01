@@ -15,8 +15,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   addContact = ({ name, number }) => {
@@ -25,12 +23,20 @@ export class App extends Component {
     if (this.state.contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
      return  alert(`${name} is already in contacts`)
     }
-    this.setState(prevState => {
-      return {
-        name: [...prevState.name, contact]
-      }
-    })
+    this.setState(prevState => ({
+      
+        contacts: [...prevState.contacts, contact]
+      
+    }));
   };
+
+  // addContact = newContact => {
+  //   this.setState(prevState => {
+  //     return {
+  //     name: [...prevState.name, newContact]
+  //   }
+  // }  )
+  // };
   
   deleteContact = id => {
     this.setState(prevState => ({

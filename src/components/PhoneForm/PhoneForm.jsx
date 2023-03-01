@@ -16,7 +16,7 @@ export const PhoneForm = ({onSave}) => {
     <Formik
         initialValues={{ name: '', number: 0 }}
         validationSchema={schema}
-        onSubmit={(values, actions) => {
+            onSubmit={(values, actions) => {
             onSave({ ...values, id: nanoid() });
             actions.resetForm();
         }}
