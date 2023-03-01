@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { GlobalStyle } from './GlobalStyle';
 import { PhoneForm } from './PhoneForm/PhoneForm';
 import { ContactList } from './ContactList/ContactList';
@@ -18,25 +19,19 @@ export class App extends Component {
     number: '',
   };
 
-  // addContact = newContact =>{
-  //   if (prevState.name === this.state.name) {
-  //     alert('${newContact} is already in contacts')
-  //   }
-  //   this.setState(prevState => {
-  //     return {
-  //       name: [...prevState.name, newContact.name]
-  //     }
-  //   })
-  // };
-  
-  addContact = newContact => {
+  addContact = ({ name, number }) => {
+    const contact = { id: nanoid(), name, number };
+
+    if (this.state.contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
+     return  alert(`${name} is already in contacts`)
+    }
     this.setState(prevState => {
       return {
-        name: [...prevState.name, newContact.name]
+        name: [...prevState.name, contact]
       }
     })
   };
-
+  
   deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),

@@ -8,7 +8,7 @@ const schema = Yup.object().shape({
      .min(2, 'Too Short!')
      .max(20, 'Too Long!')
      .required('Required'),
-number: Yup.number().positive('! > 0').required(),
+number: Yup.number().positive('!!! > 0').required('Required'),
  });
 
 export const PhoneForm = ({onSave}) => {
@@ -19,7 +19,6 @@ export const PhoneForm = ({onSave}) => {
         onSubmit={(values, actions) => {
             onSave({ ...values, id: nanoid() });
             actions.resetForm();
-
         }}
         >
         <Form>
