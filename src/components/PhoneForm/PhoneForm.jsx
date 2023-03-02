@@ -14,7 +14,7 @@ number: Yup.number().positive('!!! > 0').required('Required'),
 export const PhoneForm = ({onSave}) => {
     return (
     <Formik
-        initialValues={{ name: '', number: 0 }}
+        initialValues={{ name: '', number: '' }}
         validationSchema={schema}
             onSubmit={(values, actions) => {
             onSave({ ...values, id: nanoid() });

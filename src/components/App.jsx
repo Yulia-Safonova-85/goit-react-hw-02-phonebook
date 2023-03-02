@@ -30,14 +30,6 @@ export class App extends Component {
     }));
   };
 
-  // addContact = newContact => {
-  //   this.setState(prevState => {
-  //     return {
-  //     name: [...prevState.name, newContact]
-  //   }
-  // }  )
-  // };
-  
   deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
